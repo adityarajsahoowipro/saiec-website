@@ -1,0 +1,6 @@
+# School App Resources (Local files only)
+School App Resources/
+School App Photos/
+*.log
+.DS_Store
+Thumbs.db
