@@ -54,7 +54,7 @@ nav {
 .hero-section {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
-                url('School App Photos/School.jpg') center/cover;
+                url('images/School.jpg') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
