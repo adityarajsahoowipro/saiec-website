@@ -336,10 +336,15 @@
 
             <div class="row">
                 <div class="col s12 center-align">
-                    <a href="#contact" class="btn-large waves-effect waves-light">
-                        <i class="material-icons left">contact_mail</i>
+                    <a href="admission.html" class="btn-large waves-effect waves-light">
+                        <i class="material-icons left">assignment</i>
                         Apply Now
                     </a>
+                    <br><br>
+                    <p class="grey-text">
+                        <i class="material-icons tiny">info</i>
+                        Click above to fill our online admission application form
+                    </p>
                 </div>
             </div>
         </div>
@@ -580,20 +585,20 @@
                             <span class="card-title">Send us a Message</span>
                             <form>
                                 <div class="input-field">
-                                    <input id="name" type="text" class="validate">
-                                    <label for="name">Your Name</label>
+                                    <input id="name" name="name" type="text" class="validate" required>
+                                    <label for="name">Your Name *</label>
                                 </div>
                                 <div class="input-field">
-                                    <input id="email" type="email" class="validate">
-                                    <label for="email">Email</label>
+                                    <input id="email" name="email" type="email" class="validate" required>
+                                    <label for="email">Email *</label>
                                 </div>
                                 <div class="input-field">
-                                    <input id="phone" type="tel" class="validate">
-                                    <label for="phone">Phone</label>
+                                    <input id="phone" name="phone" type="tel" class="validate" pattern="[+]?[\d\s\-\(\)]{7,15}" title="Enter a valid phone number (7-15 digits, may include +, spaces, dashes, parentheses)" required>
+                                    <label for="phone">Phone *</label>
                                 </div>
                                 <div class="input-field">
-                                    <textarea id="message" class="materialize-textarea"></textarea>
-                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" class="materialize-textarea" required></textarea>
+                                    <label for="message">Message *</label>
                                 </div>
                                 <button class="btn waves-effect waves-light" type="submit">
                                     Send Message
@@ -760,26 +765,92 @@
 
                             <div class="divider"></div>
 
-                            <!-- Students List -->
+                            <!-- Dashboard Tabs -->
                             <div class="row">
                                 <div class="col s12">
-                                    <h5>Student Records</h5>
-                                    <table class="striped responsive-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Admission No.</th>
-                                                <th>Name</th>
-                                                <th>Class</th>
-                                                <th>Guardian</th>
-                                                <th>Payment Status</th>
-                                                <th>Balance</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="students-table">
-                                            <!-- Student records will be populated here -->
-                                        </tbody>
-                                    </table>
+                                    <ul class="tabs">
+                                        <li class="tab col s6">
+                                            <a href="#students-section" class="active">Student Records</a>
+                                        </li>
+                                        <li class="tab col s6">
+                                            <a href="#applications-section">Admission Applications</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Students Section -->
+                            <div id="students-section" class="col s12">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h5>Student Records</h5>
+                                        <table class="striped responsive-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Admission No.</th>
+                                                    <th>Name</th>
+                                                    <th>Class</th>
+                                                    <th>Guardian</th>
+                                                    <th>Payment Status</th>
+                                                    <th>Balance</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="students-table">
+                                                <!-- Student records will be populated here -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Admission Applications Section -->
+                            <div id="applications-section" class="col s12">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h5>Admission Applications
+                                            <span class="right">
+                                                <span class="chip teal white-text" id="applications-count">0 Applications</span>
+                                            </span>
+                                        </h5>
+                                        
+                                        <!-- Application Filters -->
+                                        <div class="row">
+                                            <div class="input-field col s12 m6">
+                                                <input id="application-search" type="text" class="validate" onkeyup="searchApplications()">
+                                                <label for="application-search">Search Applications...</label>
+                                                <i class="material-icons prefix">search</i>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <select id="status-filter" onchange="filterApplicationsByStatus()">
+                                                    <option value="">All Status</option>
+                                                    <option value="Pending Review">Pending Review</option>
+                                                    <option value="Approved">Approved</option>
+                                                    <option value="Rejected">Rejected</option>
+                                                    <option value="Waitlisted">Waitlisted</option>
+                                                </select>
+                                                <label>Filter by Status</label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Applications Table -->
+                                        <table class="striped responsive-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Application ID</th>
+                                                    <th>Student Name</th>
+                                                    <th>Class Applied</th>
+                                                    <th>Guardian Contact</th>
+                                                    <th>Submission Date</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="applications-table">
+                                                <!-- Applications will be populated here -->
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
